@@ -2,10 +2,12 @@
 using UnityEngine;
 
 public class InputHandler : Singleton<InputHandler> {
+
     public event Action MoveUp;
     public event Action MoveDown;
     public event Action MoveLeft;
     public event Action MoverRight;
+    public event Action<Vector3> Shoot;
 
     [SerializeField]
     KeyCode MoveUpKey = KeyCode.W;
@@ -33,6 +35,22 @@ public class InputHandler : Singleton<InputHandler> {
         if (Input.GetKey(MoveRightKey))
         {
             OnMoveRight();
+        }
+    }
+
+    private void LateUpdate()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            Shoot(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0)));
+        }
+    }
+
+    void OnShoot(Vector3 target)
+    {
+        if (Shoot != null)
+        {
+            Shoot(target);
         }
     }
 
