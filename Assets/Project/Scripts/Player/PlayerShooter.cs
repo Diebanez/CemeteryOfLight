@@ -7,14 +7,14 @@ public class PlayerShooter : MonoBehaviour {
     GameObject Bullet;
     [SerializeField]
     float ShootDelay = 0.20f;
-
+    [SerializeField]
     GameObject Muzzle;
+
     float timer = 0;
 
     private void Start()
     {
         InputHandler.instance.Shoot += OnShoot;
-        Muzzle = new GameObject("Muzzle");
         Muzzle.transform.parent = this.transform;
         Muzzle.transform.localPosition = Vector3.zero;
         timer = ShootDelay;
