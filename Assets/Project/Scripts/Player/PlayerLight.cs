@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerWax))]
-public class PlayerLight : MonoBehaviour {
+public class PlayerLight : Singleton<PlayerLight> {
     [SerializeField]
     Light m_Light;
     [SerializeField]
@@ -103,5 +103,10 @@ public class PlayerLight : MonoBehaviour {
             LightPoints = 100;
             OnChangeLight(true);
         }
+    }
+
+    public void ReduceByOneLevel(int lightDamage)
+    {
+        LightPoints -= lightDamage;
     }
 }

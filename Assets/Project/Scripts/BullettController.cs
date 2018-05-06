@@ -10,7 +10,7 @@ public class BullettController : MonoBehaviour {
 
     float timer = 0.0f;
 
-    private void Update()
+    protected virtual void Update()
     {
         if (timer >= LifeTime)
         {
