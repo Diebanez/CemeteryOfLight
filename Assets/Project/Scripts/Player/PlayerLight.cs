@@ -16,6 +16,10 @@ public class PlayerLight : MonoBehaviour {
     LightRange ThirdLightRange;
     [SerializeField]
     float LightLossRate = .5f;
+    [SerializeField]
+    int FirstLevelPoints = 20;
+    [SerializeField]
+    int SecondLevelPoints = 50;
 
     PlayerWax m_PlayerWax;
     public bool IsLightOn = true;
@@ -49,11 +53,11 @@ public class PlayerLight : MonoBehaviour {
                 if(LightPoints <= 0)
                 {
                     OnChangeLight(false);
-                }else if (LightPoints <= 20)
+                }else if (LightPoints <= FirstLevelPoints)
                 {
                     m_LightController.Ranges = FirstLightRange;
                 }
-                else if (LightPoints <= 50)
+                else if (LightPoints <= SecondLevelPoints)
                 {
                     m_LightController.Ranges = SecondLightRange;
                 }
