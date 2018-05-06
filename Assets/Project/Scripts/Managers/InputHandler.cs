@@ -12,6 +12,7 @@ public class InputHandler : Singleton<InputHandler> {
     public event Action MoveLeftDone;
     public event Action MoveRightDone;
     public event Action<Vector3> Shoot;
+    public event Action ConsumeCandle;
 
     [SerializeField]
     KeyCode MoveUpKey = KeyCode.W;
@@ -21,6 +22,8 @@ public class InputHandler : Singleton<InputHandler> {
     KeyCode MoveLeftKey = KeyCode.A;
     [SerializeField]
     KeyCode MoveRightKey = KeyCode.D;
+    [SerializeField]
+    KeyCode ConsumeCandleKey = KeyCode.E;
 
     void Update()
     {
@@ -56,6 +59,10 @@ public class InputHandler : Singleton<InputHandler> {
         {
             OnMoveRightDone();
         }
+        if (Input.GetKeyDown(ConsumeCandleKey))
+        {
+            OnConsumeCandle();
+        }
     }
 
     private void LateUpdate()
@@ -63,6 +70,13 @@ public class InputHandler : Singleton<InputHandler> {
         if (Input.GetMouseButton(0))
         {
             Shoot(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0)));
+        }
+    }
+
+    void OnConsumeCandle() {
+        if(ConsumeCandle != null)
+        {
+            ConsumeCandle();
         }
     }
 
