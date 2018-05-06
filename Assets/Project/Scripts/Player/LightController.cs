@@ -11,12 +11,15 @@ public class LightRange
     public Color SecondColor;
     public float MinIntensity;
     public float MaxIntensity;
+    public float ColliderRadius;
 }
 
 [RequireComponent(typeof(Light))]
 public class LightController : MonoBehaviour {
     public LightRange Ranges;
     public int LightLevel;
+    [SerializeField]
+    CircleCollider2D LightCollider;
 
     [SerializeField]
     float timeBetweenChange;
@@ -27,10 +30,15 @@ public class LightController : MonoBehaviour {
     private void Start()
     {
         MyLight = GetComponent<Light>();
+        
     }
 
     private void Update()
     {
+        if (LightCollider != null)
+        {
+            LightCollider.radius = Ranges.ColliderRadius;
+        }
         timer += Time.deltaTime;
         if (timer >= timeBetweenChange)
         {

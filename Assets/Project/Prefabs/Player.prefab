@@ -235,7 +235,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -344,6 +344,9 @@ MonoBehaviour:
     SecondColor: {r: 0, g: 0.54901963, b: 0.909804, a: 0}
     MinIntensity: 4
     MaxIntensity: 5
+    ColliderRadius: 0
+  LightLevel: 0
+  LightCollider: {fileID: 58441897057570734}
   timeBetweenChange: 0.1
 --- !u!114 &114243671159387974
 MonoBehaviour:
@@ -392,6 +395,7 @@ MonoBehaviour:
     SecondColor: {r: 0, g: 0.54901963, b: 0.9098039, a: 0}
     MinIntensity: 2
     MaxIntensity: 3
+    ColliderRadius: 1.5
   SecondLightRange:
     MinRange: 70
     MaxRange: 90
@@ -399,6 +403,7 @@ MonoBehaviour:
     SecondColor: {r: 0, g: 0.54901963, b: 0.909804, a: 0}
     MinIntensity: 3
     MaxIntensity: 4
+    ColliderRadius: 2.8
   ThirdLightRange:
     MinRange: 100
     MaxRange: 120
@@ -406,6 +411,7 @@ MonoBehaviour:
     SecondColor: {r: 0, g: 0.54901963, b: 0.909804, a: 0}
     MinIntensity: 4
     MaxIntensity: 5
+    ColliderRadius: 6.3
   LightLossRate: 10
   IsLightOn: 1
   LightPoints: 100

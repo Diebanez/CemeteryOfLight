@@ -34,7 +34,7 @@ public class EnemyController : MonoBehaviour {
         {
             if (LightInRange.Contains(collision.gameObject.GetComponentInParent<LightController>()))
             {
-                LightInRange.Add(collision.gameObject.GetComponentInParent<LightController>());
+                LightInRange.Remove(collision.gameObject.GetComponentInParent<LightController>());
             }
         }
     }
