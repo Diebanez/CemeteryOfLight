@@ -30,7 +30,7 @@ public class PlayerShooter : MonoBehaviour {
 
     void OnShoot(Vector3 target)
     {
-        if (timer >= ShootDelay)
+        if (timer >= ShootDelay && PlayerLight.instance.IsLightOn)
         {
             timer = 0;
             Vector3 LookTarget = new Vector3(target.x, target.y, transform.position.z);
