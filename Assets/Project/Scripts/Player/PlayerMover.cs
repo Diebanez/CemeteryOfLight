@@ -16,7 +16,7 @@ public class PlayerMover : MonoBehaviour {
 
     void Start()
     {
-        layerMask = ~(1 << LayerMask.NameToLayer("Light"));
+        layerMask = ~(1 << (LayerMask.NameToLayer("Light")) | (1 << LayerMask.NameToLayer("Enemy")));
         m_SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
         InputHandler.instance.MoveUp += OnMoveUp;
         InputHandler.instance.MoveDown += OnMoveDown;

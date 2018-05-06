@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4979905039079162}
   - component: {fileID: 114141606167356764}
   - component: {fileID: 61231267884110130}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Chaser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4737522661172738}
   - component: {fileID: 212223008499993014}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
