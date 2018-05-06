@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
+    
 [RequireComponent(typeof(PlayerLight))]
 public class PlayerWax : MonoBehaviour {
     [SerializeField]
-    float WaxLossRate = 0.5f;    
-
+    float WaxLossRate = 0.5f;
+    [SerializeField]
+    TextMeshProUGUI WaxText;
 
     PlayerLight m_PlayerLight;
     public int Wax = 100;
@@ -41,6 +43,7 @@ public class PlayerWax : MonoBehaviour {
             }
             timer = 0;
         }
+        WaxText.text = "Wax " + Wax;
     }    
 
     void OnConsumeCandle()
