@@ -12,8 +12,8 @@ public class EnemyController : MonoBehaviour {
     [SerializeField]
     int PlayerDamage = 1;
 
-    float ActualMovementSpeed;
-    float ActualDamage;
+    protected float ActualMovementSpeed;
+    protected float ActualDamage;
     List<LightController> LightInRange = new List<LightController>();
 
     private void Start()
