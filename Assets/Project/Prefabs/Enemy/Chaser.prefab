@@ -111,9 +111,7 @@ MonoBehaviour:
   Damage: 1
   Life: 10
   PlayerDamage: 1
-  PatternNodes:
-  - {x: 6, y: 5}
-  - {x: 4, y: 5}
+  PatternNodes: []
   AttackDistance: 1
   EngageDistance: 3
 --- !u!212 &212223008499993014
@@ -130,7 +128,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a8838ea6e29600e47ad11cda75f66fa4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
