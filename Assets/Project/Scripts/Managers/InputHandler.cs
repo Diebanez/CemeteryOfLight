@@ -6,7 +6,11 @@ public class InputHandler : Singleton<InputHandler> {
     public event Action MoveUp;
     public event Action MoveDown;
     public event Action MoveLeft;
-    public event Action MoverRight;
+    public event Action MoveRight;
+    public event Action MoveUpDone;
+    public event Action MoveDownDone;
+    public event Action MoveLeftDone;
+    public event Action MoveRightDone;
     public event Action<Vector3> Shoot;
 
     [SerializeField]
@@ -35,6 +39,22 @@ public class InputHandler : Singleton<InputHandler> {
         if (Input.GetKey(MoveRightKey))
         {
             OnMoveRight();
+        }
+        if (Input.GetKeyUp(MoveUpKey))
+        {
+            OnMoveUpDone();
+        }
+        if (Input.GetKeyUp(MoveDownKey))
+        {
+            OnMoveDownDone();
+        }
+        if (Input.GetKeyUp(MoveLeftKey))
+        {
+            OnMoveLeftDone();
+        }
+        if (Input.GetKeyUp(MoveRightKey))
+        {
+            OnMoveRightDone();
         }
     }
 
@@ -80,9 +100,41 @@ public class InputHandler : Singleton<InputHandler> {
 
     void OnMoveRight()
     {
-        if(MoverRight != null)
+        if(MoveRight != null)
         {
-            MoverRight();
+            MoveRight();
+        }
+    }
+
+    void OnMoveUpDone()
+    {
+        if (MoveUpDone != null)
+        {
+            MoveUpDone();
+        }
+    }
+
+    void OnMoveDownDone()
+    {
+        if (MoveDownDone != null)
+        {
+            MoveDownDone();
+        }
+    }
+
+    void OnMoveLeftDone()
+    {
+        if (MoveLeftDone != null)
+        {
+            MoveLeftDone();
+        }
+    }
+
+    void OnMoveRightDone()
+    {
+        if (MoveRightDone != null)
+        {
+            MoveRightDone();
         }
     }
 }

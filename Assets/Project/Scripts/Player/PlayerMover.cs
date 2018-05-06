@@ -10,7 +10,7 @@ public class PlayerMover : MonoBehaviour {
         InputHandler.instance.MoveUp += OnMoveUp;
         InputHandler.instance.MoveDown += OnMoveDown;
         InputHandler.instance.MoveLeft += OnMoveLeft;
-        InputHandler.instance.MoverRight += OnMoveRight;
+        InputHandler.instance.MoveRight += OnMoveRight;
     }
 
     void OnDestroy()
@@ -18,7 +18,7 @@ public class PlayerMover : MonoBehaviour {
         InputHandler.instance.MoveUp -= OnMoveUp;
         InputHandler.instance.MoveDown -= OnMoveDown;
         InputHandler.instance.MoveLeft -= OnMoveLeft;
-        InputHandler.instance.MoverRight -= OnMoveRight;
+        InputHandler.instance.MoveRight -= OnMoveRight;
     }
 
     void OnMoveUp()

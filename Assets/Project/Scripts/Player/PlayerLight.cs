@@ -19,7 +19,7 @@ public class PlayerLight : MonoBehaviour {
 
     PlayerWax m_PlayerWax;
     public bool IsLightOn = true;
-    int LightPoints = 100;
+    public int LightPoints = 100;
     float LightLoss = 0;
     float timer = 0;
 
@@ -85,7 +85,7 @@ public class PlayerLight : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Candle")
+        if (collision.tag == "Candle" || collision.tag == "Torch")
         {
             LightPoints = 100;
             OnChangeLight(true);
@@ -94,7 +94,7 @@ public class PlayerLight : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Candle")
+        if (collision.tag == "Candle" || collision.tag == "Torch")
         {
             LightPoints = 100;
             OnChangeLight(true);
