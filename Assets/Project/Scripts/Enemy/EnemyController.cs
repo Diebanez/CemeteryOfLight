@@ -109,8 +109,11 @@ public class EnemyController : MonoBehaviour {
                 PatternIndex = 0;
             }
         }
-        Vector3 Movement = new Vector3(PatternNodes[PatternIndex].x, PatternNodes[PatternIndex].y, 0) - transform.position;
-        transform.Translate((Movement / Movement.magnitude) * ActualMovementSpeed * Time.deltaTime);
+        if (PatternNodes.Length > 1)
+        {
+            Vector3 Movement = new Vector3(PatternNodes[PatternIndex].x, PatternNodes[PatternIndex].y, 0) - transform.position;
+            transform.Translate((Movement / Movement.magnitude) * ActualMovementSpeed * Time.deltaTime);
+        }
     }
 
     private void OnValidate()
