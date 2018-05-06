@@ -15,8 +15,6 @@ public class PlayerShooter : MonoBehaviour {
     private void Start()
     {
         InputHandler.instance.Shoot += OnShoot;
-        Muzzle.transform.parent = this.transform;
-        Muzzle.transform.localPosition = Vector3.zero;
         timer = ShootDelay;
     }
 
