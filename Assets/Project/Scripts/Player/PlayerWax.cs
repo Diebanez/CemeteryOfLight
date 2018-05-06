@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 [RequireComponent(typeof(PlayerLight))]
 public class PlayerWax : MonoBehaviour {
@@ -11,9 +12,17 @@ public class PlayerWax : MonoBehaviour {
     float WaxLoss = 0;
     float timer = 0;
 
+    List<GameObject> candles = new List<GameObject>();
+
     private void Start()
     {
         m_PlayerLight = GetComponent<PlayerLight>();
+        InputHandler.instance.ConsumeCandle += OnConsumeCandle;
+    }
+
+    private void OnDestroy()
+    {
+        InputHandler.instance.ConsumeCandle -= OnConsumeCandle;
     }
 
     private void Update()
@@ -33,4 +42,40 @@ public class PlayerWax : MonoBehaviour {
             timer = 0;
         }
     }    
+
+    void OnConsumeCandle()
+    {
+        if(candles.Count >= 0)
+        {
+            Queue<GameObject> CandlesToDestroy = new Queue<GameObject>();
+            foreach(GameObject Candle in candles)
+            {
+                Wax = 100;
+                CandlesToDestroy.Enqueue(Candle);
+            }
+
+            while(CandlesToDestroy.Count > 0)
+            {
+                GameObject DestroyingCandle = CandlesToDestroy.Dequeue();
+                candles.Remove(DestroyingCandle);
+                Destroy(DestroyingCandle.gameObject);
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Candle" && !candles.Contains(collision.gameObject))
+        {
+            candles.Add(collision.gameObject);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (candles.Contains(collision.gameObject))
+        {
+            candles.Remove(collision.gameObject);
+        }
+    }
 }
