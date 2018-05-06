@@ -108,7 +108,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1560893511930534}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.1}
+  m_LocalPosition: {x: -28.800001, y: -16, z: -3.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4881833856977122}
@@ -391,27 +391,24 @@ MonoBehaviour:
   FirstLightRange:
     MinRange: 40
     MaxRange: 60
-    FirstColor: {r: 0, g: 0.8980392, b: 0.9411765, a: 0}
-    SecondColor: {r: 0, g: 0.54901963, b: 0.9098039, a: 0}
-    MinIntensity: 2
-    MaxIntensity: 3
-    ColliderRadius: 1.5
+    FirstColor: {r: 0.9411765, g: 0.5647059, b: 0, a: 0}
+    SecondColor: {r: 0.9098039, g: 0, b: 0, a: 0}
+    MinIntensity: 5
+    MaxIntensity: 7
   SecondLightRange:
     MinRange: 70
     MaxRange: 90
-    FirstColor: {r: 0, g: 0.8980393, b: 0.94117653, a: 0}
-    SecondColor: {r: 0, g: 0.54901963, b: 0.909804, a: 0}
-    MinIntensity: 3
-    MaxIntensity: 4
-    ColliderRadius: 2.8
+    FirstColor: {r: 0.44961074, g: 0.94671017, b: 0.9705882, a: 0}
+    SecondColor: {r: 0, g: 0.909804, b: 0.4956862, a: 0}
+    MinIntensity: 5
+    MaxIntensity: 7
   ThirdLightRange:
     MinRange: 100
     MaxRange: 120
-    FirstColor: {r: 0, g: 0.8980393, b: 0.94117653, a: 0}
-    SecondColor: {r: 0, g: 0.54901963, b: 0.909804, a: 0}
-    MinIntensity: 4
-    MaxIntensity: 5
-    ColliderRadius: 6.3
+    FirstColor: {r: 0.47794116, g: 0.97607243, b: 1, a: 0}
+    SecondColor: {r: 0.56806874, g: 0.8154056, b: 0.97794116, a: 0}
+    MinIntensity: 9
+    MaxIntensity: 10
   LightLossRate: 10
   IsLightOn: 1
   LightPoints: 100
