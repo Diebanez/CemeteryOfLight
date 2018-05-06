@@ -299,7 +299,7 @@ MonoBehaviour:
     MinIntensity: 2
     MaxIntensity: 3
     ColliderRadius: 1.5
-  LightLevel: 0
+    LightLevel: 1
   LightCollider: {fileID: 58447787311277366}
   timeBetweenChange: 0.1
 --- !u!212 &212477320519903792

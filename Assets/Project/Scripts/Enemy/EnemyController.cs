@@ -20,7 +20,48 @@ public class EnemyController : MonoBehaviour {
     {
         ActualMovementSpeed = MovementSpeed;
         ActualDamage = Damage;
-    }    
+    }
+
+    private void Update()
+    {
+        if(LightInRange.Count > 0)
+        {
+            int LightLevel = 1;
+            foreach(LightController lc in LightInRange)
+            {
+                if(lc.Ranges.LightLevel > LightLevel)
+                {
+                    LightLevel = lc.Ranges.LightLevel;
+                }
+            }
+            switch (LightLevel)
+            {
+                case 1:
+                    {
+                        ActualMovementSpeed = MovementSpeed * .8f;
+                        ActualDamage = Damage * .8f;
+                        break;
+                    }
+                case 2:
+                    {
+                        ActualMovementSpeed = MovementSpeed * .6f;
+                        ActualDamage = Damage * .6f;
+                        break;
+                    }
+                case 3:
+                    {
+                        ActualMovementSpeed = MovementSpeed * .4f;
+                        ActualDamage = Damage * .4f;
+                        break;
+                    }
+            }
+        }
+        else
+        {
+            ActualMovementSpeed = MovementSpeed;
+            ActualDamage = Damage;
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

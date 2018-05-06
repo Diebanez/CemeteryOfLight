@@ -12,12 +12,12 @@ public class LightRange
     public float MinIntensity;
     public float MaxIntensity;
     public float ColliderRadius;
+    public int LightLevel;
 }
 
 [RequireComponent(typeof(Light))]
 public class LightController : MonoBehaviour {
     public LightRange Ranges;
-    public int LightLevel;
     [SerializeField]
     CircleCollider2D LightCollider;
 
