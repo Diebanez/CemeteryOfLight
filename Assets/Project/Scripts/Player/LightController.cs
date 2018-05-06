@@ -16,6 +16,7 @@ public class LightRange
 [RequireComponent(typeof(Light))]
 public class LightController : MonoBehaviour {
     public LightRange Ranges;
+    public int LightLevel;
 
     [SerializeField]
     float timeBetweenChange;
