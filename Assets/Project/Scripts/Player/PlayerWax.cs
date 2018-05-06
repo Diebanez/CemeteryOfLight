@@ -4,14 +4,6 @@
 public class PlayerWax : MonoBehaviour {
     [SerializeField]
     float WaxLossRate = 0.5f;    
-    [SerializeField]
-    Sprite FirstSprite;
-    [SerializeField]
-    Sprite SecondSprite;
-    [SerializeField]
-    Sprite ThirdSprite;
-    [SerializeField]
-    SpriteRenderer m_SpriteRenderer;
 
 
     PlayerLight m_PlayerLight;
@@ -39,17 +31,6 @@ public class PlayerWax : MonoBehaviour {
                 }
             }
             timer = 0;
-            if(Wax <= 20)
-            {
-                m_SpriteRenderer.sprite = FirstSprite;
-            }else if( Wax<= 50)
-            {
-                m_SpriteRenderer.sprite = SecondSprite;
-            }
-            else
-            {
-                m_SpriteRenderer.sprite = ThirdSprite;
-            }
         }
     }    
 }

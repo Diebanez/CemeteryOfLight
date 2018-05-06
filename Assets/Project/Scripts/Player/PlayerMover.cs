@@ -4,13 +4,26 @@ using UnityEngine;
 public class PlayerMover : MonoBehaviour {
     [SerializeField]
     float MovementSpeed = 5.0f;
+    [SerializeField]
+    Vector2 SpriteSize = new Vector2(4, 1.6f);
+
+    bool IsMovingRight = false;
+    bool IsMovingUp = false;
+    bool IsMovingDown = false;
+    bool IsMovingLeft = false;
+    SpriteRenderer m_SpriteRenderer;
 
     void Start()
     {
+        m_SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
         InputHandler.instance.MoveUp += OnMoveUp;
         InputHandler.instance.MoveDown += OnMoveDown;
         InputHandler.instance.MoveLeft += OnMoveLeft;
         InputHandler.instance.MoveRight += OnMoveRight;
+        InputHandler.instance.MoveUpDone += OnMoveUpDone;
+        InputHandler.instance.MoveDownDone += OnMoveDownDone;
+        InputHandler.instance.MoveLeftDone += OnMoveLeftDone;
+        InputHandler.instance.MoveRightDone += OnMoveRightDone;
     }
 
     void OnDestroy()
@@ -19,25 +32,117 @@ public class PlayerMover : MonoBehaviour {
         InputHandler.instance.MoveDown -= OnMoveDown;
         InputHandler.instance.MoveLeft -= OnMoveLeft;
         InputHandler.instance.MoveRight -= OnMoveRight;
+        InputHandler.instance.MoveUpDone -= OnMoveUpDone;
+        InputHandler.instance.MoveDownDone -= OnMoveDownDone;
+        InputHandler.instance.MoveLeftDone -= OnMoveLeftDone;
+        InputHandler.instance.MoveRightDone -= OnMoveRightDone;
+    }
+
+    private void Update()
+    {
+        if (IsMovingRight)
+        {
+            if (IsMovingUp)
+            {
+                transform.Translate(new Vector2(.5f, .5f) * MovementSpeed * Time.deltaTime);
+            }else if (IsMovingDown)
+            {
+                transform.Translate(new Vector2(.5f, -.5f) * MovementSpeed * Time.deltaTime);
+            }
+            else
+            {
+                transform.Translate(new Vector2(1.0f, 0.0f) * MovementSpeed * Time.deltaTime);
+            }
+        }
+        else if (IsMovingLeft)
+        {
+            if (IsMovingUp)
+            {
+                transform.Translate(new Vector2(-.5f, .5f) * MovementSpeed * Time.deltaTime);
+            }
+            else if (IsMovingDown)
+            {
+                transform.Translate(new Vector2(-.5f, -.5f) * MovementSpeed * Time.deltaTime);
+            }
+            else
+            {
+                transform.Translate(new Vector2(-1.0f, 0.0f) * MovementSpeed * Time.deltaTime);
+            }
+        }
+        else
+        {
+            if (IsMovingUp)
+            {
+                transform.Translate(new Vector2(0.0f, 1.0f) * MovementSpeed * Time.deltaTime);
+            }
+            else if (IsMovingDown)
+            {
+                transform.Translate(new Vector2(0.0f, -1.0f) * MovementSpeed * Time.deltaTime);
+            }
+        }
     }
 
     void OnMoveUp()
     {
-        transform.Translate(transform.up * MovementSpeed * Time.deltaTime);
+        if (!Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + .01f) + new Vector2(0, SpriteSize.y), Vector2.up, .1f) &&
+            !Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + .01f) + new Vector2(-SpriteSize.x / 2, SpriteSize.y), Vector2.up, .1f) &&
+            !Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + .01f) + new Vector2(+SpriteSize.x / 2, SpriteSize.y), Vector2.up, .1f))
+        {
+            //transform.Translate(transform.up * MovementSpeed * Time.deltaTime);
+            IsMovingUp = true;
+        }
     }
 
     void OnMoveDown()
     {
-        transform.Translate(-transform.up * MovementSpeed * Time.deltaTime);
+        if (!Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - .01f), -Vector2.up, .1f) &&
+            !Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - .01f) + new Vector2(-SpriteSize.x / 2, 0), -Vector2.up, .1f) &&
+            !Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - .01f) + new Vector2(+SpriteSize.x / 2, 0), -Vector2.up, .1f))
+        {
+            IsMovingDown = true;
+            //transform.Translate(-transform.up * MovementSpeed * Time.deltaTime);
+        }
     }
 
     void OnMoveLeft()
     {
-        transform.Translate(-transform.right * MovementSpeed * Time.deltaTime);
+        if (!Physics2D.Raycast(new Vector2(transform.position.x - .01f, transform.position.y) + new Vector2(-SpriteSize.x / 2, 0), -Vector2.right, .1f) &&
+            !Physics2D.Raycast(new Vector2(transform.position.x - .01f, transform.position.y) + new Vector2(-SpriteSize.x / 2, SpriteSize.y), -Vector2.right, .1f) &&
+            !Physics2D.Raycast(new Vector2(transform.position.x - .01f, transform.position.y) + new Vector2(-SpriteSize.x / 2, SpriteSize.y/2), -Vector2.right, .1f))
+        {
+            IsMovingLeft = true;
+            //transform.Translate(-transform.right * MovementSpeed * Time.deltaTime);
+        }
     }
 
     void OnMoveRight()
     {
-        transform.Translate(transform.right * MovementSpeed * Time.deltaTime);
+        if (!Physics2D.Raycast(new Vector2(transform.position.x + .01f, transform.position.y) + new Vector2(SpriteSize.x / 2, 0), Vector2.right, .1f) &&
+            !Physics2D.Raycast(new Vector2(transform.position.x + .01f, transform.position.y) + new Vector2(SpriteSize.x / 2, SpriteSize.y), Vector2.right, .1f) &&
+            !Physics2D.Raycast(new Vector2(transform.position.x + .01f, transform.position.y) + new Vector2(SpriteSize.x / 2, SpriteSize.y / 2), Vector2.right, .1f))
+        {
+            IsMovingRight = true;
+            //transform.Translate(transform.right * MovementSpeed * Time.deltaTime);
+        }
+    }
+
+    void OnMoveUpDone()
+    {
+        IsMovingUp = false;
+    }
+
+    void OnMoveDownDone()
+    {
+        IsMovingDown = false;
+    }
+
+    void OnMoveLeftDone()
+    {
+        IsMovingLeft = false;
+    }
+
+    void OnMoveRightDone()
+    {
+        IsMovingRight = false;
     }
 }

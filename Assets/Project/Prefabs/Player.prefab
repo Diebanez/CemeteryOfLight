@@ -92,7 +92,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1560893511930534}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4881833856977122}
@@ -108,7 +108,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1614417987696574}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 4316881690476040}
@@ -121,7 +121,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1884598915304996}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -3.5}
+  m_LocalPosition: {x: 0, y: 3.4, z: -3.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4316881690476040}
@@ -208,7 +208,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 1.7}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -219,7 +219,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6, y: 4}
+  m_Size: {x: 1.6, y: 3.4}
   m_EdgeRadius: 0
 --- !u!81 &81803385711691702
 AudioListener:
@@ -376,10 +376,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaxLossRate: 0.5
-  FirstSprite: {fileID: 21300000, guid: 773c46ef9fa970b40977d32faae69112, type: 3}
-  SecondSprite: {fileID: 21300002, guid: 773c46ef9fa970b40977d32faae69112, type: 3}
-  ThirdSprite: {fileID: 21300032, guid: 119812a1a939c2b49b648e239d3b4485, type: 3}
-  m_SpriteRenderer: {fileID: 212982606203951582}
   Wax: 100
 --- !u!114 &114755691979141856
 MonoBehaviour:
@@ -393,6 +389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementSpeed: 5
+  SpriteSize: {x: 1.6, y: 3.4}
 --- !u!124 &124296043805017232
 Behaviour:
   m_ObjectHideFlags: 1
