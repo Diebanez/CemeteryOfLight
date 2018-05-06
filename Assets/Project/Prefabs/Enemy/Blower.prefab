@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4928b8c7092c4f488bde0ac8722bfc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 3
+  MovementSpeed: 7
   Damage: 0
   Life: 10
   PlayerDamage: 1
@@ -144,8 +144,8 @@ MonoBehaviour:
   - {x: 6, y: 5}
   - {x: 4, y: 6}
   - {x: 5, y: 4}
-  AttackDistance: 3
-  EngageDistance: 5
+  AttackDistance: 4.8
+  EngageDistance: 9.55
   BlowRate: 1
   BlowPrefab: {fileID: 1092368848089632, guid: 7281e3681431de2468b7032dab85422b, type: 2}
   Muzzle: {fileID: 1234782824608102}

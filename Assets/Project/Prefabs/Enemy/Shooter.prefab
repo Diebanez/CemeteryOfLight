@@ -136,14 +136,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfede26404b90ab41b9a9816e1b6374d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 2
+  MovementSpeed: 7
   Damage: 4
   Life: 10
   PlayerDamage: 1
   PatternNodes:
   - {x: -10, y: 8}
-  AttackDistance: 4
-  EngageDistance: 9
+  AttackDistance: 8.33
+  EngageDistance: 15.37
   AttackRate: 1
   ShootPrefab: {fileID: 1535422124484116, guid: 1802025e4e347e84bbec5ff5d5598e51,
     type: 2}
