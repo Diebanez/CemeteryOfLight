@@ -16,13 +16,13 @@ public class EnemyController : MonoBehaviour {
     protected float ActualDamage;
     List<LightController> LightInRange = new List<LightController>();
 
-    private void Start()
+    protected virtual void Start()
     {
         ActualMovementSpeed = MovementSpeed;
         ActualDamage = Damage;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if(LightInRange.Count > 0)
         {

@@ -426,7 +426,7 @@ MonoBehaviour:
     SecondColor: {r: 0.9098039, g: 0, b: 0, a: 0}
     MinIntensity: 5
     MaxIntensity: 7
-    ColliderRadius: 0
+    ColliderRadius: 1.5
     LightLevel: 1
   SecondLightRange:
     MinRange: 95
@@ -435,7 +435,7 @@ MonoBehaviour:
     SecondColor: {r: 0, g: 0.909804, b: 0.4956862, a: 0}
     MinIntensity: 5
     MaxIntensity: 7
-    ColliderRadius: 0
+    ColliderRadius: 2.8
     LightLevel: 2
   ThirdLightRange:
     MinRange: 135
@@ -444,7 +444,7 @@ MonoBehaviour:
     SecondColor: {r: 0.56806874, g: 0.8154056, b: 0.97794116, a: 0}
     MinIntensity: 9
     MaxIntensity: 10
-    ColliderRadius: 0
+    ColliderRadius: 6.3
     LightLevel: 3
   LightLossRate: 2
   FirstLevelPoints: 20
