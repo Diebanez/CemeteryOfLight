@@ -6,6 +6,8 @@ public class PlayerMover : MonoBehaviour {
     float MovementSpeed = 5.0f;
     [SerializeField]
     Vector2 SpriteSize = new Vector2(4, 1.6f);
+    [SerializeField]
+    float ObliqueMovement = .65f;
 
     int layerMask;
     bool IsMovingRight = false;
@@ -46,10 +48,10 @@ public class PlayerMover : MonoBehaviour {
         {
             if (IsMovingUp)
             {
-                transform.Translate(new Vector2(.5f, .5f) * MovementSpeed * Time.deltaTime);
+                transform.Translate(new Vector2(ObliqueMovement, ObliqueMovement) * MovementSpeed * Time.deltaTime);
             }else if (IsMovingDown)
             {
-                transform.Translate(new Vector2(.5f, -.5f) * MovementSpeed * Time.deltaTime);
+                transform.Translate(new Vector2(ObliqueMovement, -ObliqueMovement) * MovementSpeed * Time.deltaTime);
             }
             else
             {
@@ -60,11 +62,11 @@ public class PlayerMover : MonoBehaviour {
         {
             if (IsMovingUp)
             {
-                transform.Translate(new Vector2(-.5f, .5f) * MovementSpeed * Time.deltaTime);
+                transform.Translate(new Vector2(-ObliqueMovement, ObliqueMovement) * MovementSpeed * Time.deltaTime);
             }
             else if (IsMovingDown)
             {
-                transform.Translate(new Vector2(-.5f, -.5f) * MovementSpeed * Time.deltaTime);
+                transform.Translate(new Vector2(-ObliqueMovement, -ObliqueMovement) * MovementSpeed * Time.deltaTime);
             }
             else
             {
