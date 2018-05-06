@@ -111,6 +111,9 @@ MonoBehaviour:
   Damage: 1
   Life: 10
   PlayerDamage: 1
+  PatternNodes:
+  - {x: 6, y: 5}
+  - {x: 4, y: 5}
   AttackDistance: 1
   EngageDistance: 3
 --- !u!212 &212223008499993014

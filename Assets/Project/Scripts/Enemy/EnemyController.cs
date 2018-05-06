@@ -11,6 +11,9 @@ public class EnemyController : MonoBehaviour {
     int Life = 10;
     [SerializeField]
     int PlayerDamage = 1;
+    [SerializeField]
+    Vector2[] PatternNodes;
+    int PatternIndex = 0;
 
     protected float ActualMovementSpeed;
     protected float ActualDamage;
@@ -91,5 +94,28 @@ public class EnemyController : MonoBehaviour {
                 LightInRange.Remove(collision.gameObject.GetComponentInParent<LightController>());
             }
         }
+    }
+
+    protected void ExecutePatternMovement()
+    {
+        if ((int)transform.position.x == (int)PatternNodes[PatternIndex].x && (int)transform.position.y == (int)PatternNodes[PatternIndex].y)
+        {
+            if (PatternIndex < PatternNodes.Length - 1)
+            {
+                PatternIndex++;
+            }
+            else
+            {
+                PatternIndex = 0;
+            }
+        }
+        Vector3 Movement = new Vector3(PatternNodes[PatternIndex].x, PatternNodes[PatternIndex].y, 0) - transform.position;
+        transform.Translate((Movement / Movement.magnitude) * ActualMovementSpeed * Time.deltaTime);
+    }
+
+    private void OnValidate()
+    {
+        if(PatternNodes.Length > 0)
+        transform.position = PatternNodes[0];
     }
 }

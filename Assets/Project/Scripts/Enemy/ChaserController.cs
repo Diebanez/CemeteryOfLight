@@ -6,16 +6,7 @@ public class ChaserController : EnemyController {
     [SerializeField]
     float AttackDistance = 1.0f;
     [SerializeField]
-    float EngageDistance = 3.0f;
-    [SerializeField]
-    Vector2[] PatternNodes;
-
-    int PatternIndex = 0;
-    protected override void Start()
-    {
-        base.Start();
-        transform.position = PatternNodes[0];
-    }
+    float EngageDistance = 3.0f;  
 
     protected override void Update()
     {
@@ -29,19 +20,7 @@ public class ChaserController : EnemyController {
         }
         else
         {
-            if((int)transform.position.x == (int)PatternNodes[PatternIndex].x && (int)transform.position.y == (int)PatternNodes[PatternIndex].y)
-            {
-                if(PatternIndex < PatternNodes.Length - 1)
-                {
-                    PatternIndex++;
-                }
-                else
-                {
-                    PatternIndex = 0;
-                }                
-            }
-            Vector3 Movement = new Vector3(PatternNodes[PatternIndex].x, PatternNodes[PatternIndex].y, 0) - transform.position;
-            transform.Translate((Movement / Movement.magnitude) * ActualMovementSpeed * Time.deltaTime);
+            this.ExecutePatternMovement();
         }
     }
 
