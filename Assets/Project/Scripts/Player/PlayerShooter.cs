@@ -5,10 +5,24 @@ using UnityEngine;
 public class PlayerShooter : MonoBehaviour {
     [SerializeField]
     GameObject Bullet;
+    [SerializeField]
+    float ShootDelay = 0.20f;
+
+    GameObject Muzzle;
+    float timer = 0;
 
     private void Start()
     {
         InputHandler.instance.Shoot += OnShoot;
+        Muzzle = new GameObject("Muzzle");
+        Muzzle.transform.parent = this.transform;
+        Muzzle.transform.localPosition = Vector3.zero;
+        timer = ShootDelay;
+    }
+
+    private void Update()
+    {
+        timer += Time.deltaTime;
     }
 
     private void OnDestroy()
@@ -18,7 +32,12 @@ public class PlayerShooter : MonoBehaviour {
 
     void OnShoot(Vector3 target)
     {
-        Quaternion spawnRotation = Quaternion.LookRotation(transform.position - target);
-        Instantiate(Bullet, transform.position, spawnRotation);
+        if (timer >= ShootDelay)
+        {
+            timer = 0;
+            Vector3 LookTarget = new Vector3(target.x, target.y, transform.position.z);
+            Muzzle.transform.LookAt(LookTarget);
+            Instantiate(Bullet, Muzzle.transform.position, Muzzle.transform.rotation);
+        }
     }
 }
