@@ -7,6 +7,10 @@ public class EnemyController : MonoBehaviour {
     float MovementSpeed;
     [SerializeField]
     float Damage;
+    [SerializeField]
+    int Life = 10;
+    [SerializeField]
+    int PlayerDamage = 1;
 
     float ActualMovementSpeed;
     float ActualDamage;
@@ -24,6 +28,15 @@ public class EnemyController : MonoBehaviour {
         {
             if (!LightInRange.Contains(collision.gameObject.GetComponentInParent<LightController>())) {
                 LightInRange.Add(collision.gameObject.GetComponentInParent<LightController>());
+            }
+        }
+        else if (collision.tag == "Bullet")
+        {
+            Destroy(collision.gameObject);
+            this.Life -= PlayerDamage;
+            if( Life<= 0 )
+            {
+                Destroy(this.gameObject);
             }
         }
     }

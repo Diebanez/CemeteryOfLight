@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Candle
   - Torch
+  - Bullet
   layers:
   - Default
   - TransparentFX
