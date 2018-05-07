@@ -119,6 +119,6 @@ public class EnemyController : MonoBehaviour {
     private void OnValidate()
     {
         if(PatternNodes.Length > 0)
-        transform.position = PatternNodes[0];
+        transform.position = new Vector3(PatternNodes[0].x, PatternNodes[0].y, transform.position.z);
     }
 }
